@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:elevation="5dp"
+    app:cardCornerRadius="10dp"
+    android:id="@+id/cv">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:paddingTop="14dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/logo1"
+                android:layout_width="18dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:foregroundGravity="top|left"
+                android:scaleType="fitXY"
+                android:src="@drawable/kolkata" />
+
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/venue"
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_margin="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:padding="0dp"
+                    android:singleLine="true"
+                    android:autoSizeMaxTextSize="30sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:text=""
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="VS"
+                    android:textSize="32sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/logo2"
+                android:layout_width="18dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:foregroundGravity="top|left"
+                android:scaleType="fitXY"
+                android:src="@drawable/hyderabad" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/teamName1"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:layout_gravity="center"
+                android:maxLines="1"
+                android:text="kkr"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/date"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="8april" />
+
+            <TextView
+                android:id="@+id/teamName2"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="srh" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
