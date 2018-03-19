@@ -79,7 +79,7 @@ public class Adapters extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case "SRH":((Item) holder).logo1.setImageResource(R.drawable.hyderabad);break;
             case "RCB":((Item) holder).logo1.setImageResource(R.drawable.bangalore);break;
             case "CSK":((Item) holder).logo1.setImageResource(R.drawable.chennai);break;
-            default:((Item) holder).logo1.setImageResource(R.drawable.ic_launcher_background);break;
+            default:((Item) holder).logo1.setImageResource(R.drawable.ques);break;
 
         }
         switch (currentVerses[1]){
@@ -91,7 +91,7 @@ public class Adapters extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case "SRH":((Item) holder).logo2.setImageResource(R.drawable.hyderabad);break;
             case "RCB":((Item) holder).logo2.setImageResource(R.drawable.bangalore);break;
             case "CSK":((Item) holder).logo2.setImageResource(R.drawable.chennai);break;
-            default:((Item) holder).logo2.setImageResource(R.drawable.ic_launcher_background);break;
+            default:((Item) holder).logo2.setImageResource(R.drawable.ques);break;
 
         }
 

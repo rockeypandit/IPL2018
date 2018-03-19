@@ -27,7 +27,7 @@ public class FixtureView extends AppCompatActivity {
 
         //sending url
         String s="" ;
-        ScrapFixture scrapFixture = new ScrapFixture();
+        ScrapFixture scrapFixture = new ScrapFixture(this);
         try {
             s = scrapFixture.execute("https://iplschedule-2018.co.in/").get();
         } catch (Exception e) {

@@ -1,5 +1,8 @@
 package com.example.rockeypandit.ipl2018;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -12,10 +15,28 @@ import java.net.URL;
  * Created by rockey pandit on 18-02-2018.
  */
 public class ScrapFixture extends AsyncTask<String,Void,String> {
-        @Override
+    private Context context;
+    public ScrapFixture(Context context) {
+        this.context=context;
+    }
+    ProgressDialog progDailog;
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        progDailog = new ProgressDialog(context);
+        progDailog.setMessage("Loading...");
+        progDailog.setIndeterminate(false);
+        progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDailog.setCancelable(true);
+        progDailog.show();
+    }
+
+    @Override
         protected void onPostExecute(String s) {
 
-
+        super.onPostExecute(s);
+        progDailog.dismiss();
 
 
         }
