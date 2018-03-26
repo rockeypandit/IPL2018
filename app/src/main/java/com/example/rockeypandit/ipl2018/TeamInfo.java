@@ -2,7 +2,6 @@ package com.example.rockeypandit.ipl2018;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Display;
@@ -18,7 +17,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class TeamInfo extends AppCompatActivity {
-    View v ;
     ImageView teamInfoImage;
     int pos[] = new int[30];
     int inc;
@@ -61,17 +59,12 @@ public class TeamInfo extends AppCompatActivity {
 
             txtTitle.setText(pName[position]);
             imageView.setImageResource(imageId[position]);
-            //if(tempName.contains("(in)"))
-            teamInfoImage.setImageResource(R.drawable.edtdelhi);
-
-
 
 
 
             return rowView;
         }
     }
-
 
 
     public static void getListViewSize(ListView myListView ,Context context) {
@@ -107,28 +100,22 @@ public class TeamInfo extends AppCompatActivity {
         params.height = totalHeight+ (myListView.getDividerHeight() * (myListAdapter.getCount() - 1));
         myListView.setLayoutParams(params);
         myListView.requestLayout();
+
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        v = getLayoutInflater().inflate(R.layout.activity_team_info,null);
-       // AppBarLayout appBarLayout = (AppBarLayout) v.findViewById(R.id.appbar);
-        //CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) appBarLayout.findViewById(R.id.collapsingToolbar);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_team_info);
 
 
-        teamInfoImage = (ImageView) v.findViewById(R.id.teamInfoLogo);
-
-      //  AppBarLayout appBarLayout= (AppBarLayout) findViewById(R.id.appbar);
-      // CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) v.findViewById(R.id.collapsingToolbar);
+        teamInfoImage = (ImageView) findViewById(R.id.teamInfLogo);
 
 
         inc=0;
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_team_info);
+
         ListView teamList = (ListView) findViewById(R.id.teamList);
-       // ImageView imgc = (ImageView) findViewById(R.id.imgC);
 
         String chennaiTeam1 = "MS Dhoni (captain), Suresh Raina, Ravindra Jadeja, Faf du Plessis(in), Harbhajan Singh, Dwayne Bravo(in), Shane Watson(in), Kedar Jadhav, Ambati Rayudu, Imran Tahir(in), Karn Sharma, Shardul Thakur, N Jagdeesan, Mitchell Santner(in), Deepak Chahar, KM Asif, Lungisani Ngidi(in), Kanishk Seth, Dhruv Shorey, Murali Vijay, Sam Billings(in), Mark Wood(in), Kshitiz Sharma, Monu Kumar, Chaitanya Bishnoi";
         String mumbaiTeam2 = "Rohit Sharma (captain), Hardik Pandya, Jasprit Bumrah, Keiron Pollard(in), Mustafizur Rahman(in), Pat Cummins(in), Suryakumar Yadav, Krunal Pandya, Ishan Kishan, Rahul Chahar, Evin Lewis(in), Saurabh Tiwary, Ben Cutting(in), Pradeep Sangwan, JP Duminy(in), Jason Behrendorff(in), T N Dhillon, Sharad Lumba, Aditya Tare, Mayank Markande, Akila Dananjaya(in), Anukul Sudhakar Roy, Mohsin Khan, MD Nidheesh";
@@ -140,18 +127,13 @@ public class TeamInfo extends AppCompatActivity {
 
         String delhiTeam7="Gautham Gambhir (captain), Shreyas Iyer, Rishabh Pant, Chris Morris(in), Glenn Maxwell(in), Jason Roy(in), Colin Munro(in), Mohammed Shami, Kagiso Rabada(in)    , Amit Mishra, Prithvi Shaw, Rahul Tewatia, Vijay Shankar, Harshal Patel, Avesh Khan, Shahbaz Nadeem, Daniel Christian(in), Jayant Yadav, Gurkeerat Singh Mann, Trent Boult(in), Manjot Kalra, Abhishek Sharma, Sandeep Lamichhane(in), Naman Ojha, Sayan Ghosh";
         String rajasthanTeam8="Steve Smith (captain)(in), Ben Stokes(in), Ajinkya Rahane, Stuart Binny, Sanju Samson, Jos Buttler(in), Rahul Tripathi, D’Arcy Short(in), Jofra Archer(in), Krishnappa Gowtham, Dhawal Kulkarni, Jaydev Unadkat, Ankit Sharma, Anureet Singh, Zahir Khan(in), Shreyas Gopal, S Midhun, Prashant Chopra, Ben Laughlin(in), Mahipal Lomror, Aryaman Birla, Jatin Saxena, Dushmantha Chameera(in)";
-        String s="";
         String getName = getIntent().getStringExtra("teamvalue");
         String[] team={};
 
-        //teamInfoImage.setImageResource(R.drawable.edtdelhi);
-      //  Resources resources = getResources();
 
 
         switch(getName){
-            case "1":
-                        teamInfoImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.edtmumbai));
-                        //teamInfoImage.setImageResource(R.drawable.edtchennai);
+            case "1":   teamInfoImage.setImageResource(R.drawable.edtchennai);
                         team = chennaiTeam1.split(", ");break;
             case "2":   teamInfoImage.setImageResource(R.drawable.edtmumbai);
                         team=mumbaiTeam2.split(",");break;
@@ -170,8 +152,7 @@ public class TeamInfo extends AppCompatActivity {
 
 
         }
-        teamInfoImage.setImageResource(R.drawable.edtdelhi);
-       // teamInfoImage.setImageDrawable(resources.getDrawable(R.drawable.edtdelhi));
+
         for (int i=0;i<team.length;i++) {
             if (team[i].contains("(in)")) {
                 pos[inc] = i;
@@ -194,17 +175,10 @@ public class TeamInfo extends AppCompatActivity {
 
         CustomList adapter1 = new CustomList(this, team, img);
 
-      //  final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1, chennaiSquad);
 
         teamList.setAdapter(adapter1);
         getListViewSize(teamList,this);
 
-      //  imgc.setImageResource(R.drawable.captian);
 
-
-        teamInfoImage.setImageResource(R.drawable.edtdelhi);
-
-        // for(int i=0;i<chennaiSquad.length;i++)
-       //     Log.i("Names : ",chennaiSquad[i]);
     }
 }

@@ -3,6 +3,7 @@ package com.example.rockeypandit.ipl2018;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -16,30 +17,36 @@ import java.net.URL;
  */
 public class ScrapFixture extends AsyncTask<String,Void,String> {
     private Context context;
+    Intent i;
     public ScrapFixture(Context context) {
         this.context=context;
+        i = new Intent(context,Home.class);
+
     }
-    ProgressDialog progDailog;
+   // ProgressDialog progDailog;
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progDailog = new ProgressDialog(context);
-        progDailog.setMessage("Loading...");
-        progDailog.setIndeterminate(false);
-        progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progDailog.setCancelable(true);
-        progDailog.show();
+//        progDailog = new ProgressDialog(context);
+      //  progDailog.setMessage("Loading...");
+     //   progDailog.setIndeterminate(false);
+     //   progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+     //   progDailog.setCancelable(true);
+      //  progDailog.show();
+       // context.startActivity(i);
     }
 
     @Override
         protected void onPostExecute(String s) {
 
         super.onPostExecute(s);
-        progDailog.dismiss();
+      //  progDailog.dismiss();
+       // context.startActivity(i);
 
 
-        }
+
+    }
 
         @Override
         protected String doInBackground(String... urls) {

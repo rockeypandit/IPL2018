@@ -5,10 +5,13 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+
 
 
 public class Home extends AppCompatActivity {
@@ -58,15 +61,18 @@ public class Home extends AppCompatActivity {
 
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+//LottieAnimationView animationView=findViewById(R.id.test);
+
         viewPager.setAdapter(viewPagerAdapter);
 
         dotsCount = viewPagerAdapter.getCount();
         dots = new ImageView[dotsCount];
-
-
-
-
-
+        try {
+            ScrapCricbuzz cr= new ScrapCricbuzz();
+            //  cr.func();
+        }catch (Exception e){
+            Log.i("ni","chala");
+        }
 
 
 
@@ -81,7 +87,6 @@ public class Home extends AppCompatActivity {
         }
 
         dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.dot));
-
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -95,6 +100,7 @@ public class Home extends AppCompatActivity {
                 }
 
                 dots[position].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.dot));
+             //   dots[position].setScaleType(ImageView.ScaleType.FIT_XY);
             }
 
             @Override
@@ -103,6 +109,24 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        viewPager.setCurrentItem(1);
+
+
+
+
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
