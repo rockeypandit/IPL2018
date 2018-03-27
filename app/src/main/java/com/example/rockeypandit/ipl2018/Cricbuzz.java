@@ -6,27 +6,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cricbuzz;
+package com.example.rockeypandit.ipl2018;
+        import android.graphics.Bitmap;
+        import android.graphics.drawable.Drawable;
+        import android.os.AsyncTask;
+        import android.view.View;
+
+        import java.io.BufferedReader;
         import java.io.IOException;
         import org.jsoup.Jsoup;
         import org.jsoup.nodes.Document;
         import org.jsoup.nodes.Element;
         import org.jsoup.select.Elements;
+
+        import com.bumptech.glide.Glide;
+        import com.bumptech.glide.request.animation.GlideAnimation;
+        import com.bumptech.glide.request.target.SimpleTarget;
         import com.google.gson.Gson;
         import com.google.gson.GsonBuilder;
+
+        import java.io.InputStreamReader;
         import java.util.*;
+        import java.util.concurrent.ExecutionException;
+
 /**
  *
  * @author shivam.m
  */
 
 public class Cricbuzz {
+    String url = "http://synd.cricbuzz.com/j2me/1.0/livematches.xml";
+    public Cricbuzz() {
+        super();
+    }
 
-        String url = "http://synd.cricbuzz.com/j2me/1.0/livematches.xml";
-        public Document getxml(String url) throws IOException {
-            Document doc;
-            doc = Jsoup.connect(url).get();
-            return doc;
+
+        public Document getxml(String url)  {
+            try {
+                return new dnlddata().execute().get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
 
         public Map<String,String> matchinfo(Element match) {
@@ -175,7 +198,31 @@ public class Cricbuzz {
         }
 
 
+
+    public class dnlddata extends AsyncTask<Object,Object,Document> {
+
+        @Override
+        protected Document doInBackground(Object[] objects) {
+            try {
+
+                Document doc;
+                doc = Jsoup.connect(url).get();
+                System.out.println("fucking data downloaded from cricbuzz");
+                System.out.println(doc.toString());
+                return doc;
+            }catch (Exception e){
+                e.printStackTrace();
+                return null;
+            }
+
+        }
+
+
     }
+
+
+
+}
 
 
 
