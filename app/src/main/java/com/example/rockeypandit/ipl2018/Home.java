@@ -1,8 +1,11 @@
 package com.example.rockeypandit.ipl2018;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +17,7 @@ import android.widget.Toast;
 
 
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements ForceUpdateChecker.OnUpdateNeededListener{
 
 
     public void fixtureCall(View view){
@@ -31,10 +34,12 @@ public class Home extends AppCompatActivity {
     }
 
     public void pointsCall(View view){
-        Toast.makeText(this,"COMING SOON..!!",Toast.LENGTH_LONG).show();
-
+        Intent intent = new Intent(getApplicationContext(), PointsTable.class);
+        startActivity(intent);
     }
-
+    public void live(View view){
+        Toast.makeText(this,"WAIT FOR THE IPL TO START...",Toast.LENGTH_LONG).show();
+    }
 
 
 
@@ -55,6 +60,7 @@ public class Home extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        ForceUpdateChecker.with(this).onUpdateNeeded(this).check();
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         sliderDotspane1 = (LinearLayout) findViewById(R.id.sliderDots);
@@ -109,12 +115,56 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        viewPager.setCurrentItem(1);
+      //  viewPager.setCurrentItem(1);
 
 
 
 
 
+      //  ScrapFixture f=new ScrapFixture(this);
+      //  f.crickbuzz();
+      //   Log.i("TEAMS INFO   ",FixtureView.groupFixtures[2].getName());
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    @Override
+    public void onUpdateNeeded(final String updateUrl) {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("New version available")
+                .setMessage("Please, update app to new version to continue.")
+                .setPositiveButton("Update",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                redirectStore(updateUrl);
+                            }
+                        }).setNegativeButton("No, thanks",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        }).create();
+        dialog.show();
+    }
+
+    private void redirectStore(String updateUrl) {
+        final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(updateUrl));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 

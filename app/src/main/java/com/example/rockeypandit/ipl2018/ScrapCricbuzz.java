@@ -28,19 +28,46 @@ Cricbuzz c = new Cricbuzz();
 //            System.out.println("kuch chala");
 
 
-            System.out.println("matches data :"+new Gson().toJson(matches));
+        //    System.out.println("matches data :"+new Gson().toJson(matches));
+            String id = matches.get(0).get("id");
+          //  Map<String,Map> score = c.livescore(id);
+          //  json = gson.toJson(score);
+         //   System.out.println("FETCHING LIVE :  " +new Gson().toJson(score));
+
+
+            Map<String,Map> livescore = c.livescore(id);
+
+
+            /*
+            Map<String,Map> comm = c.commentary(id);
+           // json = gson.toJson(comm);
+            System.out.println(new Gson().toJson(comm));
+
+
 
             for(int k=0;k<matches.size();k++){
 
                 System.out.println("match "+(k+1)+" :"+new Gson().toJson(matches.get(k).get("status")));
             }
 
+
+
+            System.out.print(new Gson().toJson(score));
+
 //            System.out.println("matches data :"+new Gson().toJson(c.matches()));
+
+
+*/
+
+
+
         }catch (Exception e){
             e.printStackTrace();
             Log.i("ghanta","chala");
         }
 
         }
+
+
 
 }

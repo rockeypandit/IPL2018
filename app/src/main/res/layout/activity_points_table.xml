@@ -1,9 +1,636 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<HorizontalScrollView     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:scrollbars="horizontal|vertical"
+    android:background="@drawable/bkt">
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rockeypandit.ipl2018.PointsTable">
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:layout_weight="1"
+    >
 
-</android.support.constraint.ConstraintLayout>
+        <TableLayout
+            android:layout_marginTop="30dp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:isScrollContainer="true">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+       <TextView
+           android:layout_margin="10dp"
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
+           android:text="TEAMS"
+           android:textSize="20dp"
+           android:textStyle="bold"
+
+           />
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="PLD"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="WON"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="LST"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="TIE"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="NR"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="PTS"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+
+
+
+    </TableRow>
+
+
+
+    <TableRow android:padding="10dp" android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/kolkata"
+            android:id="@+id/pimg1"
+            />
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="0"
+            android:textSize="18dp"
+            android:id="@+id/ppld1"
+            />
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="0"
+            android:id="@+id/pwon1"
+            android:textSize="18dp"
+            />
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="0"
+            android:id="@+id/plost1"
+            android:textSize="18dp"
+            />
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="0"
+            android:id="@+id/ptie1"
+            android:textSize="18dp"
+            />
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="0"
+            android:id="@+id/pnet1"
+            android:textSize="18dp"
+            />
+
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="0"
+            android:textSize="18dp"
+            android:id="@+id/ppts1"
+
+            />
+
+    </TableRow>
+
+
+            <TableRow android:padding="10dp" android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/bangalore"
+                    android:id="@+id/pimg2"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppld2"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pwon2"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/plost2"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/ptie2"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pnet2"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppts2"
+
+                    />
+
+
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/delhi"
+                    android:id="@+id/pimg3"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppld3"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pwon3"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/plost3"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/ptie3"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pnet3"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppts3"
+
+                    />
+
+
+
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/chennai"
+                    android:id="@+id/pimg4"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppld4"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pwon4"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/plost4"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/ptie4"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pnet4"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppts4"
+
+                    />
+
+
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/hyderabad"
+                    android:id="@+id/pimg5"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppld5"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pwon5"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/plost5"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/ptie5"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pnet5"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppts5"
+
+                    />
+
+
+
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/mumbai"
+                    android:id="@+id/pimg6"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppld6"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pwon6"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/plost6"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/ptie6"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pnet6"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppts6"
+
+                    />
+
+
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/punjab"
+                    android:id="@+id/pimg7"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppld7"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pwon7"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/plost7"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/ptie7"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pnet7"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="0"
+                android:textSize="18dp"
+                android:id="@+id/ppts7"
+
+                />
+
+
+
+
+            </TableRow>
+
+            <TableRow android:padding="10dp" android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/rajasthan"
+                    android:id="@+id/pimg8"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppld8"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pwon8"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/plost8"
+                    android:textSize="18dp"
+                    />
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/ptie8"
+                    android:textSize="18dp"
+                    />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:id="@+id/pnet8"
+                    android:textSize="18dp"
+                    />
+
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="18dp"
+                    android:id="@+id/ppts8"
+
+                    />
+
+            </TableRow>
+
+
+
+
+
+
+
+
+
+
+
+
+</TableLayout>
+
+
+
+
+
+</ScrollView></HorizontalScrollView>

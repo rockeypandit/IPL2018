@@ -7,16 +7,14 @@
  * and open the template in the editor.
  */
 package com.example.rockeypandit.ipl2018;
-        import android.graphics.Bitmap;
-        import android.graphics.drawable.Drawable;
-        import android.os.AsyncTask;
-        import android.view.View;
 
-        import java.io.BufferedReader;
+        import android.os.AsyncTask;
+
         import java.io.IOException;
         import org.jsoup.Jsoup;
         import org.jsoup.nodes.Document;
         import org.jsoup.nodes.Element;
+        import org.jsoup.nodes.Node;
         import org.jsoup.select.Elements;
 
         import com.bumptech.glide.Glide;
@@ -25,7 +23,10 @@ package com.example.rockeypandit.ipl2018;
         import com.google.gson.Gson;
         import com.google.gson.GsonBuilder;
 
+        import java.io.InputStream;
         import java.io.InputStreamReader;
+        import java.net.HttpURLConnection;
+        import java.net.URL;
         import java.util.*;
         import java.util.concurrent.ExecutionException;
 
@@ -88,12 +89,25 @@ public class Cricbuzz {
                 score.put("matchinfo",matchinfo(match));
 
                 String commurl = match.attr("datapath") + "commentary.xml";
-                doc = getxml(commurl);
+          //      System.out.println("URLLLL   :" +commurl);
+
+             //   doc = getxml(commurl)
+                dnlddata2 d2=new dnlddata2();
+                doc= d2.execute(commurl).get();
+               /// System.out.print("DOC:    "+doc);
                 Element mscr = doc.select("mscr").get(0);
+               /// System.out.println("mscr :"+mscr);
                 Element batting = mscr.select("bttm").get(0);
                 Element bowling = mscr.select("blgtm").get(0);
                 Elements batsman = mscr.select("btsmn");
                 Elements bowler = mscr.select("blrs");
+//                System.out.println("batting abc:"+mscr.select("bttm"));
+//                System.out.println("batsman abc:"+mscr.select("btsmn"));
+//                System.out.println("bowler abc:"+mscr.select("blrs"));
+
+              ///  System.out.println("batting xyz:"+batting);
+               /// System.out.println("batsman xyz:"+batsman);
+               /// System.out.println("bowler xyz:"+bowler);
 
                 HashMap<String,Vector<HashMap<String,String>>> b1 = new HashMap<String,Vector<HashMap<String,String>>>();
                 Vector v1 = new Vector();
@@ -103,14 +117,16 @@ public class Cricbuzz {
 
                 b1.put("team",v1);
                 Vector v2 = new Vector();
-
+                HashMap<String,String> m2 = new HashMap<String,String>();
                 for(Element b: batsman) {
-                    HashMap<String,String> m2 = new HashMap<String,String>();
-                    m2.put("name", b.attr("sname"));
+
+                    m2.put("name", b.attr("sName"));
                     m2.put("runs", b.attr("r"));
                     m2.put("balls", b.attr("b"));
                     m2.put("fours", b.attr("frs"));
                     m2.put("six", b.attr("sxs"));
+                    System.out.print("MAYBE BATSMANN   "+b.attr("sName"));
+
                     v2.addElement(m2);
                 }
 
@@ -132,14 +148,14 @@ public class Cricbuzz {
                 Vector v = new Vector();
 
                 HashMap<String,String> m = new HashMap<String,String>();
-                m.put("team",bowling.attr("sname"));
+                m.put("team",bowling.attr("sName"));
                 v.add(m);
                 b2.put("team",v);
                 //System.out.print(b2);
                 Vector v5 = new Vector();
                 for(Element b: bowler) {
                     HashMap<String,String> m4 = new HashMap<String,String>();
-                    m4.put("name", b.attr("sname"));
+                    m4.put("name", b.attr("sName"));
                     m4.put("overs", b.attr("ovrs"));
                     m4.put("maidens", b.attr("mdns"));
                     m4.put("runs", b.attr("r"));
@@ -164,6 +180,8 @@ public class Cricbuzz {
                 return score;
             }
             catch (Exception e) {
+                e.printStackTrace();
+              //  Log.i("ERROR IN CRICKBUZZ JAVA",e.printStackTrace());
                 return score;
             }
 
@@ -207,8 +225,8 @@ public class Cricbuzz {
 
                 Document doc;
                 doc = Jsoup.connect(url).get();
-                System.out.println("fucking data downloaded from cricbuzz");
-                System.out.println(doc.toString());
+            //    System.out.println("fucking data downloaded from cricbuzz");
+              //  System.out.println(doc.toString());
                 return doc;
             }catch (Exception e){
                 e.printStackTrace();
@@ -220,6 +238,37 @@ public class Cricbuzz {
 
     }
 
+    public static class dnlddata2 extends AsyncTask<String,Object,Document> {
+
+        @Override
+        protected Document doInBackground(String[] urls) {
+            try {
+
+                StringBuilder result = new StringBuilder();
+                URL url;
+                HttpURLConnection urlConnection = null;
+
+                    url = new URL(urls[0]);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    InputStream in = urlConnection.getInputStream();
+                    InputStreamReader reader = new InputStreamReader(in);
+                    int data = reader.read();
+                    while (data != -1) {
+                        char current = (char) data;
+                        result.append(current);
+                        data = reader.read();
+                    }
+                System.out.println("here is the data dnlded:"+result.toString());
+                    return Jsoup.parse(result.toString());
+            }catch (Exception e){
+                e.printStackTrace();
+                return null;
+            }
+
+        }
+
+
+    }
 
 
 }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,10 +22,16 @@ import java.util.List;
 public class Adapters extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
+
+
+
+
     Context context;
     String[] finalname,venue,time;
     List<String> date;
-
+    int position;
+    String[] rr = new String[5];
+    int pos;
     public Adapters(Context context, String[] items,List<String> date,String[] venue,String[] time) {
         this.context = context;
         this.finalname = items;
@@ -33,6 +40,9 @@ public class Adapters extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.time=time;
 
     }
+
+
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -45,7 +55,10 @@ public class Adapters extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            this.position=position;
 
+
+pos = holder.getAdapterPosition();
 
 
         String vs="VS";
@@ -68,6 +81,12 @@ public class Adapters extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         currentVerses[1] = currentVerses[1].trim();
         //   Log.i(currentVerses[0],currentVerses[1]);
 
+
+        rr[0]=currentVerses[0];
+        rr[1]=currentVerses[1];
+        rr[2]=date.get(position);
+        rr[3]=venue[position];
+        rr[4]=time[position];
 
 
         switch (currentVerses[0]){
@@ -99,6 +118,43 @@ public class Adapters extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     }
+
+
+
+
+    public int getInfo() {
+
+
+
+
+        /*
+
+        String vs="VS";
+        if (finalname[position].contains("vs")){
+            vs="vs";
+        }else if(finalname[position].contains("Vs")){
+            vs = "Vs";
+        }
+
+
+
+        String[] currentVerses=finalname[position].split(vs);
+
+
+
+  */
+
+        return pos;
+
+
+
+    }
+
+
+
+
+
+
 
     @Override
     public int getItemCount() {
